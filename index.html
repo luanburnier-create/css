@@ -3,9 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog</title>
-    <!-- Esta linha abaixo conecta o HTML com o seu arquivo css/style.css -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Meu Blog Moderno</title>
+    
+    <style>
+        /* Configurações Globais do Blog */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ─── REQUISITOS DO SEU EXERCÍCIO ESTILIZADOS ─── */
+
+        article {
+            /* 1. Altera a exibição para linha (um ao lado do outro) */
+            display: flex;
+            flex-direction: row;
+
+            /* 2. Ajusta para ocupar 100% da largura da página */
+            flex: 1 1 100%;
+            width: 100%;
+            max-width: 800px; /* Limita o tamanho para não esticar infinito */
+
+            /* Estilização Visual do Card */
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+            box-sizing: border-box;
+            align-items: center; /* Alinhamento centralizado padrão dos itens */
+            gap: 20px; /* Espaço entre a imagem e os textos */
+            transition: transform 0.2s;
+        }
+
+        /* Efeito visual ao passar o mouse no card */
+        article:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Estrutura dos Textos internos */
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        article h2 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.4rem;
+        }
+
+        article p {
+            margin: 0;
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* 3. Propriedade align-self para quebrar o alinhamento padrão */
+        article img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            
+            /* Requisito 3: Desalinha a imagem jogando ela para o topo do card */
+            align-self: flex-start; 
+        }
+    </style>
 </head>
 <body>
 
@@ -14,14 +104,26 @@
     </header>
 
     <main>
-        <!-- Um exemplo de card (article) para testar o seu layout horizontal -->
+        
+        <!-- Postagem 1 -->
         <article>
-            <img src="https://placeholder.com" alt="Imagem do post">
-            <div>
-                <h2>Título da Minha Primeira Postagem</h2>
-                <p>Este é o texto de resumo do meu artigo. Ele deve aparecer ao lado da imagem e do título por causa da regra flex-direction: row que configuramos juntos!</p>
+            <!-- Imagem real que funciona direto da web -->
+            <img src="https://unsplash.com" alt="Programação">
+            <div class="card-content">
+                <h2>Como Dominei o Flexbox no CSS</h2>
+                <p>O Flexbox revolucionou a forma como criamos layouts na web. Com propriedades simples como flex-direction e align-self, conseguimos organizar elementos horizontalmente de forma responsiva, elegante e sem quebrar a estrutura da página.</p>
             </div>
         </article>
+
+        <!-- Postagem 2 -->
+        <article>
+            <img src="https://unsplash.com" alt="Código">
+            <div class="card-content">
+                <h2>Alinhamentos Independentes com Align-Self</h2>
+                <p>Enquanto o container dita as regras gerais de alinhamento para todos os filhos através do align-items, a propriedade align-self dá superpoderes para um único elemento quebrar a regra do grupo e se posicionar de forma única.</p>
+            </div>
+        </article>
+
     </main>
 
 </body>
