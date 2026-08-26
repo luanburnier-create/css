@@ -1,17 +1,28 @@
-article {
-    /* 1. Altera a exibição dos elementos internos para linha */
-    display: flex;
-    flex-direction: row;
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog</title>
+    <!-- Esta linha abaixo conecta o HTML com o seu arquivo css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    /* 2. Ajusta cada card para ocupar 100% da largura da página */
-    flex: 1 1 100%;
-    
-    /* Garante o alinhamento centralizado padrão dos itens */
-    align-items: center; 
-}
+    <header>
+        <h1>Meu Blog de Postagens</h1>
+    </header>
 
-/* 3. Modifica o alinhamento de um elemento interno específico */
-article img {
-    /* Alinha a imagem no topo do card, quebrando o padrão */
-    align-self: flex-start; 
-}
+    <main>
+        <!-- Um exemplo de card (article) para testar o seu layout horizontal -->
+        <article>
+            <img src="https://placeholder.com" alt="Imagem do post">
+            <div>
+                <h2>Título da Minha Primeira Postagem</h2>
+                <p>Este é o texto de resumo do meu artigo. Ele deve aparecer ao lado da imagem e do título por causa da regra flex-direction: row que configuramos juntos!</p>
+            </div>
+        </article>
+    </main>
+
+</body>
+</html>
