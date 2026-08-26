@@ -1,0 +1,17 @@
+article {
+    /* 1. Altera a exibição dos elementos internos para linha */
+    display: flex;
+    flex-direction: row;
+
+    /* 2. Ajusta cada card para ocupar 100% da largura da página */
+    flex: 1 1 100%;
+    
+    /* Garante o alinhamento centralizado padrão dos itens */
+    align-items: center; 
+}
+
+/* 3. Modifica o alinhamento de um elemento interno específico */
+article img {
+    /* Alinha a imagem no topo do card, quebrando o padrão */
+    align-self: flex-start; 
+}
