@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio Ilustrado</title>
-  <!-- Fonte com estilo artístico e retrô do Google Fonts -->
+  <title>Portal Interativo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset e Cores da Imagem de Inspiração */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -18,231 +16,286 @@
     }
 
     body {
-      background-color: #e5e2d0; /* Fundo Bege/Caqui da imagem */
-      color: #5a5449;
-      font-family: 'Quicksand', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
     }
 
-    /* Menu Superior Estilo Pílula */
+    /* Navegação */
     header {
-      padding: 20px;
-      display: flex;
-      justify-content: flex-start;
+      background-color: #1e293b;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
     nav {
-      display: flex;
-      gap: 10px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #7a7365;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 6px 14px;
-      border-radius: 4px;
-      transition: all 0.2s;
-    }
-
-    nav a.active, nav a:hover {
-      background-color: #b5b09c;
-      color: #ffffff;
-    }
-
-    /* Hero Section / Banner do Polvo */
-    .hero {
-      text-align: center;
-      padding: 40px 20px 60px 20px;
-      background-image: radial-gradient(#d3ceba 20%, transparent 20%);
-      background-size: 15px 15px; /* Padrão sutil de pontos */
-    }
-
-    .hero h1 {
-      font-family: 'Fredoka', cursive;
-      font-size: 4rem;
-      color: #ffffff;
-      text-shadow: 3px 3px 0px #d96b43; /* Sombra laranja destacada */
-      line-height: 0.9;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 500px;
+      max-width: 1200px;
       margin: 0 auto;
-      font-size: 1.1rem;
-      color: #6e6758;
-    }
-
-    /* Mensagem de Apresentação */
-    .intro {
-      text-align: center;
-      max-width: 700px;
-      margin: 50px auto 30px auto;
-      padding: 0 20px;
-      font-size: 1.2rem;
-    }
-
-    .intro strong {
-      color: #3b372e;
-    }
-
-    /* Grid de Ícones de Serviços (Estilo a imagem de referência) */
-    .servicos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto 60px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    .servico-item img {
-      width: 65px;
-      height: 65px;
-      margin-bottom: 15px;
-      filter: drop-shadow(0px 3px 0px rgba(0,0,0,0.1));
-    }
-
-    .servico-item h3 {
-      font-family: 'Fredoka', cursive;
-      color: #7a7365;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .servico-item p {
-      font-size: 0.85rem;
-      color: #7a7365;
-      line-height: 1.4;
-    }
-
-    /* Card Sobre Mim / Lista Horizontal */
-    .secao-sobre {
-      max-width: 900px;
-      margin: 0 auto 60px auto;
-      padding: 0 20px;
-    }
-
-    /* O elemento article aplicando as regras flex de linha e 100% */
-    article.card-horizontal {
       display: flex;
-      flex-direction: row;
-      flex: 1 1 100%;
-      width: 100%;
-      background-color: #ffffff;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      justify-content: space-between;
       align-items: center;
     }
 
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* Banner Principal */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: #f8fafc;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    /* Abas Interativas */
+    .secao-abas {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .botoes-abas {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .btn-aba {
+      background: #1e293b;
+      color: #94a3b8;
+      border: 1px solid #334155;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-aba.ativo, .btn-aba:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      border-color: #38bdf8;
+    }
+
+    .conteudo-aba {
+      display: none;
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .conteudo-aba.ativo {
+      display: block;
+    }
+
+    /* Cards em Linha (Seletor article) */
+    .container-cards {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    article.card-horizontal {
+      display: flex;
+      flex-direction: row; /* Elementos em linha */
+      flex: 1 1 100%;     /* 100% da largura */
+      width: 100%;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 25px;
+      gap: 25px;
+      align-items: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    article.card-horizontal:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+    }
+
     article.card-horizontal img {
-      width: 45%;
-      height: 320px;
+      width: 220px;
+      height: 140px;
       object-fit: cover;
+      border-radius: 10px;
     }
 
-    .card-conteudo {
-      width: 55%;
-      padding: 40px;
+    .card-info {
+      flex: 1;
     }
 
-    .card-conteudo h2 {
-      font-family: 'Fredoka', cursive;
-      color: #d96b43; /* Laranja da imagem */
-      font-size: 2.2rem;
-      margin-bottom: 15px;
+    .card-info h3 {
+      font-size: 1.4rem;
+      color: #f8fafc;
+      margin-bottom: 10px;
     }
 
-    .card-conteudo p {
+    .card-info p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    .detalhes-ocultos {
+      display: none;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px dashed #334155;
+      color: #cbd5e1;
       font-size: 0.9rem;
-      color: #7a7365;
-      line-height: 1.6;
-      margin-bottom: 20px;
     }
 
-    /* align-self no botão para mudar a posição padrão */
+    /* align-self no botão */
     article.card-horizontal button {
-      align-self: flex-start;
-      background-color: #d96b43;
-      color: #ffffff;
+      align-self: flex-end; /* Posicionado no canto inferior */
+      background-color: #38bdf8;
+      color: #0f172a;
       border: none;
       padding: 10px 20px;
-      border-radius: 20px;
-      font-weight: 600;
+      border-radius: 8px;
+      font-weight: 700;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.3s;
     }
 
     article.card-horizontal button:hover {
-      background-color: #b8542f;
+      background-color: #7dd3fc;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Menu de Navegação -->
   <header>
     <nav>
-      <a href="#" class="active">HOME</a>
-      <a href="#">ABOUT</a>
-      <a href="#">WORK</a>
-      <a href="#">STORE</a>
-      <a href="#">CONTACT</a>
+      <div class="logo">MeuPortal</div>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- Banner principal -->
-  <section class="hero">
-    <h1>stand<br>out</h1>
-    <p>in a sea of ordinary, make sure your website is set apart from the competition</p>
+  <!-- Banner -->
+  <section id="inicio" class="hero">
+    <h1>Postagens & <span>Interações</span></h1>
+    <p>Clique nos botões abaixo para interagir com o conteúdo.</p>
   </section>
 
-  <!-- Apresentação -->
-  <div class="intro">
-    <p>Hi, my name is Denise. I create <strong>beautiful & functional</strong> websites for small businesses. Below are a few services I provide:</p>
-  </div>
+  <!-- Abas Interativas -->
+  <section id="recursos" class="secao-abas">
+    <div class="botoes-abas">
+      <button class="btn-aba ativo" onclick="alternarAba(0)">Sobre o Projeto</button>
+      <button class="btn-aba" onclick="alternarAba(1)">Tecnologias</button>
+      <button class="btn-aba" onclick="alternarAba(2)">Recursos</button>
+    </div>
 
-  <!-- Grid de Serviços -->
-  <section class="servicos-grid">
-    <div class="servico-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Icone">
-      <h3>WEBSITE DESIGN</h3>
-      <p>Each of my designs begins with a blank canvas which allows your content to guide the layout.</p>
+    <div class="conteudo-aba ativo">
+      <h4>Sobre o Projeto</h4>
+      <p>Estrutura totalmente em português, focada em interatividade e na exibição de cards horizontais.</p>
     </div>
-    <div class="servico-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" alt="Icone">
-      <h3>DEVELOPMENT</h3>
-      <p>Responsive development will help make your website easily accessible across all devices.</p>
+
+    <div class="conteudo-aba">
+      <h4>Tecnologias</h4>
+      <p>Desenvolvido com HTML5, CSS Flexbox e JavaScript para interações rápidas sem recarregar a página.</p>
     </div>
-    <div class="servico-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Icone">
-      <h3>NEWSLETTER DESIGN</h3>
-      <p>A matching newsletter is the perfect way to complement your website & keep in contact.</p>
-    </div>
-    <div class="servico-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Icone">
-      <h3>SOCIAL MEDIA</h3>
-      <p>It's important to keep your brand consistent and recognizable across all platforms.</p>
+
+    <div class="conteudo-aba">
+      <h4>Recursos</h4>
+      <p>Cards expansíveis com a propriedade flex-direction em linha e alinhamento do botão com align-self.</p>
     </div>
   </section>
 
-  <!-- Card Horizontal "About Me" usando o seletor article com flex-direction: row -->
-  <section class="secao-sobre">
+  <!-- Lista de Articles Horizontais -->
+  <main id="projetos" class="container-cards">
+
     <article class="card-horizontal">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" alt="Sobre mim">
-      <div class="card-conteudo">
-        <h2>About Me</h2>
-        <p>In the spring of 2003, during my first year of college, I took a general education business course where we were assigned the task of building a webpage. Thus began my love affair with design.</p>
-        <button onclick="alert('Obrigado pelo interesse!')">Saiba Mais</button>
+      <img src="https://picsum.photos/400/250?random=1" alt="Imagem da Postagem 1">
+      <div class="card-info">
+        <h3>Design de Interfaces</h3>
+        <p>Aprenda a criar layouts modernos e responsivos utilizando Flexbox e CSS Grid.</p>
+        <div id="detalhes-1" class="detalhes-ocultos">
+          <strong>Mais Informações:</strong> Conteúdo completo com exemplos práticos, regras de espaçamento e boas práticas de tipografia.
+        </div>
       </div>
+      <button onclick="toggleDetalhes('detalhes-1', this)">Ver mais</button>
     </article>
-  </section>
+
+    <article class="card-horizontal">
+      <img src="https://picsum.photos/400/250?random=2" alt="Imagem da Postagem 2">
+      <div class="card-info">
+        <h3>Interatividade com JavaScript</h3>
+        <p>Adicione animações e eventos de clique para deixar seu site mais dinâmico.</p>
+        <div id="detalhes-2" class="detalhes-ocultos">
+          <strong>Mais Informações:</strong> Explicação passo a passo sobre funções, manipulação de classes do CSS e exibição de elementos ocultos.
+        </div>
+      </div>
+      <button onclick="toggleDetalhes('detalhes-2', this)">Ver mais</button>
+    </article>
+
+  </main>
+
+  <script>
+    function alternarAba(index) {
+      const botoes = document.querySelectorAll('.btn-aba');
+      const conteudos = document.querySelectorAll('.conteudo-aba');
+
+      botoes.forEach((btn, i) => {
+        btn.classList.toggle('ativo', i === index);
+        conteudos[i].classList.toggle('ativo', i === index);
+      });
+    }
+
+    function toggleDetalhes(id, botao) {
+      const painel = document.getElementById(id);
+      if (painel.style.display === 'block') {
+        painel.style.display = 'none';
+        botao.innerText = 'Ver mais';
+      } else {
+        painel.style.display = 'block';
+        botao.innerText = 'Recolher';
+      }
+    }
+  </script>
 
 </body>
 </html>
