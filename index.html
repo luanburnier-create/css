@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Postagens</title>
+  <title>Lista de Postagens - Estética Y2K / Aero</title>
   
+  <!-- Fontes retro e limpas do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Reset Básico e Cores Globais */
+    /* Reset Básico e Fundo Gradiente Estilo Frutiger Aero */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,9 +19,11 @@
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: #f1f5f9;
-      color: #334155;
+      font-family: 'Quicksand', sans-serif;
+      /* Gradiente aquático/aéreo em tons de azul e verde pastel */
+      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 50%, #d4fc79 100%);
+      background-attachment: fixed;
+      color: #2c3e50;
       padding: 40px 20px;
     }
 
@@ -24,7 +31,7 @@
     .container {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 25px;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -32,6 +39,7 @@
     /* 
       1. Seletor article exibindo conteúdo em linha (row)
       2. Propriedade flex configurada para 100% da largura
+      3. Visual de Janela Retro Glassmorphism (efeito vidro)
     */
     article {
       display: flex;
@@ -39,27 +47,36 @@
       flex: 1 1 100%;      /* Cada card ocupa 100% da largura */
       width: 100%;
 
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 24px;
-      gap: 24px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e2e8f0;
+      /* Fundo semi-transparente com efeito vidro e brilho */
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      
+      /* Borda dupla prateada/brilhante parecida com janelas de OS antigos */
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 20px;
+      gap: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.9);
       align-items: center; /* Alinhamento central padrão */
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.3s ease;
     }
 
     article:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
     }
 
-    /* Imagem da Postagem */
+    /* Imagem da Postagem com Borda Arredondada e Brilho */
     article img {
-      width: 200px;
-      height: 130px;
+      width: 180px;
+      height: 120px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 14px;
+      border: 2px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       flex-shrink: 0;
     }
 
@@ -69,52 +86,63 @@
     }
 
     .conteudo h2 {
-      color: #0f172a;
-      font-size: 1.25rem;
+      font-family: 'Chakra Petch', sans-serif;
+      color: #1e5799;
+      font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
     }
 
     .conteudo p {
-      color: #64748b;
+      color: #4a6572;
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     /* Texto extra que aparece ao clicar em "Ver mais" */
     .texto-extra {
       display: none;
-      margin-top: 10px;
-      color: #475569;
+      margin-top: 12px;
+      color: #2b4a6f;
       font-size: 0.9rem;
-      border-top: 1px dashed #cbd5e1;
+      border-top: 2px dotted #a1c4fd;
       padding-top: 10px;
     }
 
     /* 
       3. Propriedade align-self aplicada ao botão
       Quebra o alinhamento centralizado e fixa o botão no canto inferior
+      Estilo de Botão Bolha/Pílula Glossy da imagem
     */
     article button {
       align-self: flex-end; /* Desloca o botão para baixo */
       
-      background-color: #2563eb;
+      /* Efeito degradê brilhante (estilo Aero/Y2K) */
+      background: linear-gradient(180deg, #87e0fd 0%, #53cbf1 40%, #05abe0 100%);
       color: #ffffff;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.875rem;
+      border: 1px solid #ffffff;
+      padding: 10px 22px;
+      border-radius: 50px; /* Formato pílula da imagem */
+      font-family: 'Chakra Petch', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
       cursor: pointer;
       white-space: nowrap;
-      transition: background-color 0.2s;
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(5, 171, 224, 0.4),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      transition: all 0.2s ease;
     }
 
     article button:hover {
-      background-color: #1d4ed8;
+      background: linear-gradient(180deg, #9be5fc 0%, #6adaf7 40%, #09baeffd 100%);
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(5, 171, 224, 0.6);
     }
 
-    /* Responsividade para telas menores */
+    /* Responsividade */
     @media (max-width: 640px) {
       article {
         flex-direction: column;
@@ -123,11 +151,12 @@
 
       article img {
         width: 100%;
-        height: 180px;
+        height: 160px;
       }
 
       article button {
         align-self: stretch;
+        text-align: center;
       }
     }
   </style>
@@ -141,7 +170,7 @@
       <img src="https://picsum.photos/400/260?random=1" alt="Imagem da publicação">
       
       <div class="conteudo">
-        <h2>Layouts Flexíveis no CSS</h2>
+        <h2>★ Layouts Flexíveis ★</h2>
         <p>Aprenda como a propriedade Flexbox facilita o alinhamento horizontal de componentes.</p>
         
         <div class="texto-extra">
@@ -149,7 +178,7 @@
         </div>
       </div>
 
-      <button onclick="alternarTexto(this)">Ver mais</button>
+      <button onclick="alternarTexto(this)">Ver mais ✦</button>
     </article>
 
     <!-- Card 2 -->
@@ -157,7 +186,7 @@
       <img src="https://picsum.photos/400/260?random=2" alt="Imagem da publicação">
       
       <div class="conteudo">
-        <h2>Uso do Alinhamento Individual</h2>
+        <h2>★ Alinhamento Individual ★</h2>
         <p>Com o <code>align-self</code>, podemos quebrar o alinhamento central padrão apenas em um elemento.</p>
         
         <div class="texto-extra">
@@ -165,25 +194,22 @@
         </div>
       </div>
 
-      <button onclick="alternarTexto(this)">Ver mais</button>
+      <button onclick="alternarTexto(this)">Ver mais ✦</button>
     </article>
 
   </main>
 
-  <!-- Script para fazer a interatividade do botão funcionar -->
   <script>
     function alternarTexto(botao) {
-      // Localiza o bloco de texto extra dentro do mesmo card
       const card = botao.closest('article');
       const textoExtra = card.querySelector('.texto-extra');
 
-      // Alterna a visibilidade do texto
       if (textoExtra.style.display === 'block') {
         textoExtra.style.display = 'none';
-        botao.innerText = 'Ver mais';
+        botao.innerText = 'Ver mais ✦';
       } else {
         textoExtra.style.display = 'block';
-        botao.innerText = 'Recolher';
+        botao.innerText = 'Recolher ✖';
       }
     }
   </script>
