@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Portfólio Interativo</title>
+  <title>Portfólio Ilustrado</title>
+  <!-- Fonte com estilo artístico e retrô do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    /* Estilos Gerais */
+    /* Reset e Cores da Imagem de Inspiração */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,267 +18,231 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3f0e8;
-      color: #4a4a4a;
-      line-height: 1.6;
+      background-color: #e5e2d0; /* Fundo Bege/Caqui da imagem */
+      color: #5a5449;
+      font-family: 'Quicksand', sans-serif;
     }
 
-    /* Navbar */
+    /* Menu Superior Estilo Pílula */
     header {
-      background-color: #2b3a42;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      padding: 20px;
+      display: flex;
+      justify-content: flex-start;
     }
 
     nav {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 15px 20px;
-    }
-
-    .logo {
-      color: #e27d60;
-      font-weight: bold;
-      font-size: 1.4rem;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
+      gap: 10px;
     }
 
     nav a {
-      color: #ffffff;
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
+      color: #7a7365;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      transition: all 0.2s;
     }
 
-    nav a:hover {
-      color: #e27d60;
+    nav a.active, nav a:hover {
+      background-color: #b5b09c;
+      color: #ffffff;
     }
 
-    /* Banner Hero */
+    /* Hero Section / Banner do Polvo */
     .hero {
-      background: linear-gradient(135deg, #3f51b5, #e27d60);
-      color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 40px 20px 60px 20px;
+      background-image: radial-gradient(#d3ceba 20%, transparent 20%);
+      background-size: 15px 15px; /* Padrão sutil de pontos */
     }
 
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      font-family: 'Fredoka', cursive;
+      font-size: 4rem;
+      color: #ffffff;
+      text-shadow: 3px 3px 0px #d96b43; /* Sombra laranja destacada */
+      line-height: 0.9;
+      margin-bottom: 15px;
     }
 
-    /* Seção de Serviços / Grid */
-    .servicos {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+    .hero p {
+      max-width: 500px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #6e6758;
     }
 
-    .card-servico {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
+    /* Mensagem de Apresentação */
+    .intro {
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 700px;
+      margin: 50px auto 30px auto;
+      padding: 0 20px;
+      font-size: 1.2rem;
     }
 
-    .card-servico:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    .intro strong {
+      color: #3b372e;
     }
 
-    .card-servico h3 {
-      color: #e27d60;
+    /* Grid de Ícones de Serviços (Estilo a imagem de referência) */
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .servico-item img {
+      width: 65px;
+      height: 65px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0px 3px 0px rgba(0,0,0,0.1));
+    }
+
+    .servico-item h3 {
+      font-family: 'Fredoka', cursive;
+      color: #7a7365;
+      font-size: 1rem;
+      letter-spacing: 1px;
       margin-bottom: 10px;
     }
 
-    /* Lista de Postagens / Cards Largos */
-    .container-posts {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
+    .servico-item p {
+      font-size: 0.85rem;
+      color: #7a7365;
+      line-height: 1.4;
     }
 
-    article.post {
+    /* Card Sobre Mim / Lista Horizontal */
+    .secao-sobre {
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+    }
+
+    /* O elemento article aplicando as regras flex de linha e 100% */
+    article.card-horizontal {
       display: flex;
       flex-direction: row;
       flex: 1 1 100%;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      gap: 20px;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    }
-
-    article.post img {
-      width: 160px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .post-conteudo {
-      flex: 1;
-    }
-
-    .post-conteudo h2 {
-      color: #2b3a42;
-      margin-bottom: 8px;
-    }
-
-    article.post button {
-      align-self: flex-end;
-      background-color: #e27d60;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    article.post button:hover {
-      background-color: #c35a3f;
-    }
-
-    /* Modal Interativo */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
+      background-color: #ffffff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       align-items: center;
-      z-index: 100;
     }
 
-    .modal-content {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 500px;
-      width: 90%;
-      position: relative;
+    article.card-horizontal img {
+      width: 45%;
+      height: 320px;
+      object-fit: cover;
     }
 
-    .fechar-modal {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.5rem;
+    .card-conteudo {
+      width: 55%;
+      padding: 40px;
+    }
+
+    .card-conteudo h2 {
+      font-family: 'Fredoka', cursive;
+      color: #d96b43; /* Laranja da imagem */
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .card-conteudo p {
+      font-size: 0.9rem;
+      color: #7a7365;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* align-self no botão para mudar a posição padrão */
+    article.card-horizontal button {
+      align-self: flex-start;
+      background-color: #d96b43;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
       cursor: pointer;
-      color: #888;
+      transition: background 0.2s;
+    }
+
+    article.card-horizontal button:hover {
+      background-color: #b8542f;
     }
   </style>
 </head>
 <body>
 
-  <!-- Menu de Navegação -->
+  <!-- Header -->
   <header>
     <nav>
-      <div class="logo">Destaque.Web</div>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-      </ul>
+      <a href="#" class="active">HOME</a>
+      <a href="#">ABOUT</a>
+      <a href="#">WORK</a>
+      <a href="#">STORE</a>
+      <a href="#">CONTACT</a>
     </nav>
   </header>
 
-  <!-- Banner Inicial -->
-  <section id="home" class="hero">
-    <h1>Stand Out</h1>
-    <p>Crie uma presença web única e marcante para os seus projetos.</p>
+  <!-- Banner principal -->
+  <section class="hero">
+    <h1>stand<br>out</h1>
+    <p>in a sea of ordinary, make sure your website is set apart from the competition</p>
   </section>
 
-  <!-- Cards de Serviços em Ícones -->
-  <section id="servicos" class="servicos">
-    <div class="card-servico">
-      <h3>Web Design</h3>
-      <p>Layouts exclusivos sob medida para a sua marca.</p>
-    </div>
-    <div class="card-servico">
-      <h3>Desenvolvimento</h3>
-      <p>Sites rápidos, responsivos e acessíveis em qualquer tela.</p>
-    </div>
-    <div class="card-servico">
-      <h3>Redes Sociais</h3>
-      <p>Estratégias visuais para engajar o seu público.</p>
-    </div>
-  </section>
-
-  <!-- Lista de Postagens Horizontais -->
-  <main id="projetos" class="container-posts">
-    <article class="post">
-      <img src="https://picsum.photos/200/150?random=1" alt="Projeto 1">
-      <div class="post-conteudo">
-        <h2>Design Inspirador</h2>
-        <p>Desenvolvimento de identidade visual com elementos criativos e ilustrações únicas.</p>
-      </div>
-      <button onclick="abrirModal('Design Inspirador', 'Detalhes completos sobre como este projeto visual foi criado do zero para se destacar na web.')">Ler Mais</button>
-    </article>
-
-    <article class="post">
-      <img src="https://picsum.photos/200/150?random=2" alt="Projeto 2">
-      <div class="post-conteudo">
-        <h2>Interface Funcional</h2>
-        <p>Foco na experiência do usuário para navegação simples, rápida e fluida.</p>
-      </div>
-      <button onclick="abrirModal('Interface Funcional', 'Informações sobre a arquitetura de informação e técnicas de otimização de performance utilizadas.')">Ler Mais</button>
-    </article>
-  </main>
-
-  <!-- Janela Pop-up (Modal) para Interação -->
-  <div id="meuModal" class="modal">
-    <div class="modal-content">
-      <span class="fechar-modal" onclick="fecharModal()">&times;</span>
-      <h2 id="modalTitulo">Título</h2>
-      <p id="modalTexto" style="margin-top: 15px;">Conteúdo...</p>
-    </div>
+  <!-- Apresentação -->
+  <div class="intro">
+    <p>Hi, my name is Denise. I create <strong>beautiful & functional</strong> websites for small businesses. Below are a few services I provide:</p>
   </div>
 
-  <!-- JavaScript para Funcionalidades Interativas -->
-  <script>
-    function abrirModal(titulo, texto) {
-      document.getElementById('modalTitulo').innerText = titulo;
-      document.getElementById('modalTexto').innerText = texto;
-      document.getElementById('meuModal').style.display = 'flex';
-    }
+  <!-- Grid de Serviços -->
+  <section class="servicos-grid">
+    <div class="servico-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Icone">
+      <h3>WEBSITE DESIGN</h3>
+      <p>Each of my designs begins with a blank canvas which allows your content to guide the layout.</p>
+    </div>
+    <div class="servico-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" alt="Icone">
+      <h3>DEVELOPMENT</h3>
+      <p>Responsive development will help make your website easily accessible across all devices.</p>
+    </div>
+    <div class="servico-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Icone">
+      <h3>NEWSLETTER DESIGN</h3>
+      <p>A matching newsletter is the perfect way to complement your website & keep in contact.</p>
+    </div>
+    <div class="servico-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Icone">
+      <h3>SOCIAL MEDIA</h3>
+      <p>It's important to keep your brand consistent and recognizable across all platforms.</p>
+    </div>
+  </section>
 
-    function fecharModal() {
-      document.getElementById('meuModal').style.display = 'none';
-    }
-
-    // Fecha o modal se clicar fora dele
-    window.onclick = function(event) {
-      const modal = document.getElementById('meuModal');
-      if (event.target === modal) {
-        fecharModal();
-      }
-    }
-  </script>
+  <!-- Card Horizontal "About Me" usando o seletor article com flex-direction: row -->
+  <section class="secao-sobre">
+    <article class="card-horizontal">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" alt="Sobre mim">
+      <div class="card-conteudo">
+        <h2>About Me</h2>
+        <p>In the spring of 2003, during my first year of college, I took a general education business course where we were assigned the task of building a webpage. Thus began my love affair with design.</p>
+        <button onclick="alert('Obrigado pelo interesse!')">Saiba Mais</button>
+      </div>
+    </article>
+  </section>
 
 </body>
 </html>
