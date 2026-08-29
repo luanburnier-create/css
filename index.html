@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Postagens</title>
+  <title>Solar Pop Studio - Postagens</title>
+
+  <!-- Fontes com estética marcante e moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Estilos Globais */
+    /* Reset e Fundo Quente (Solar Pop Style) */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,67 +19,51 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
-      color: #333333;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #fff8f0; /* Tom creme/areia suave */
+      color: #2b1b17;
       padding: 40px 20px;
     }
 
     .container {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
       max-width: 900px;
       margin: 0 auto;
     }
 
-    /* Regra Base dos Cards (Article) */
+    /* Regra do Card de Postagem (Article em linha e 100% de largura) */
     article {
       display: flex;
       flex-direction: row;
       flex: 1 1 100%;
       width: 100%;
+
       background-color: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      gap: 20px;
+      border: 2px solid #ffe8d6;
+      border-radius: 24px;
+      padding: 24px;
+      gap: 24px;
       align-items: center;
 
-      /* Sombra inicial e transição para o efeito de hover */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      /* Sombra e transição para o efeito :hover */
+      box-shadow: 0 8px 20px rgba(255, 107, 53, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     /* REQUISITO: Seletor :hover aumentando o tamanho e intensificando a sombra */
     article:hover {
       transform: scale(1.02);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 16px 32px rgba(255, 107, 53, 0.2);
     }
 
-    /* REQUISITO: Ajustes do :hover no Modo Escuro */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #0f172a;
-        color: #f8fafc;
-      }
-
-      article {
-        background-color: #1e293b;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      }
-
-      /* Sombra azul brilhante no hover para telas escuras */
-      article:hover {
-        box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
-      }
-    }
-
-    /* Imagem e Conteúdo */
+    /* Imagem da Postagem com estilo pop */
     article img {
-      width: 180px;
-      height: 120px;
+      width: 200px;
+      height: 130px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 16px;
       flex-shrink: 0;
     }
 
@@ -83,25 +72,100 @@
     }
 
     .conteudo h2 {
-      font-size: 1.25rem;
+      font-family: 'Syne', sans-serif;
+      color: #ff4800; /* Laranja vibrante */
+      font-size: 1.4rem;
+      font-weight: 800;
       margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
     }
 
     .conteudo p {
+      color: #645550;
       font-size: 0.95rem;
-      line-height: 1.4;
+      line-height: 1.5;
+    }
+
+    .texto-extra {
+      display: none;
+      margin-top: 12px;
+      color: #2b1b17;
+      font-size: 0.9rem;
+      border-top: 2px dashed #ffb09c;
+      padding-top: 10px;
     }
 
     /* Botão posicionado no canto inferior com align-self */
     article button {
       align-self: flex-end;
-      background-color: #2563eb;
+      background-color: #ff4800;
       color: #ffffff;
       border: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
       cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(255, 72, 0, 0.3);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    article button:hover {
+      background-color: #ff6b35;
+      transform: translateY(-2px);
+    }
+
+    /* REQUISITO: Ajustes do :hover para o Modo Escuro */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1a0f0d;
+        color: #fff8f0;
+      }
+
+      article {
+        background-color: #2b1b17;
+        border-color: #3d2823;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .conteudo h2 {
+        color: #ff6b35;
+      }
+
+      .conteudo p {
+        color: #d1c2bd;
+      }
+
+      .texto-extra {
+        color: #fff8f0;
+        border-top-color: #ff6b35;
+      }
+
+      /* Sombra coral/brilhante no hover para telas escuras */
+      article:hover {
+        box-shadow: 0 0 24px rgba(255, 107, 53, 0.4);
+      }
+    }
+
+    /* Responsividade */
+    @media (max-width: 640px) {
+      article {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      article img {
+        width: 100%;
+        height: 180px;
+      }
+
+      article button {
+        align-self: stretch;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -109,25 +173,54 @@
 
   <main class="container">
 
+    <!-- Card 1 -->
     <article>
       <img src="imagem.jpg" alt="Imagem da publicação 1">
+      
       <div class="conteudo">
-        <h2>Primeira Postagem</h2>
-        <p>Passe o mouse sobre este cartão para visualizar o efeito de expansão com sombra.</p>
+        <h2>Brand Design That Shines</h2>
+        <p>Aprenda a criar identidades visuais marcantes utilizando cores vibrantes e layouts altamente dinâmicos.</p>
+        
+        <div class="texto-extra">
+          Utilizando <code>flex-direction: row</code> e um visual pop moderno, seus cartões capturam a atenção de forma elegante.
+        </div>
       </div>
-      <button>Ler mais</button>
+
+      <button onclick="alternarTexto(this)">Ver Projeto ➔</button>
     </article>
 
+    <!-- Card 2 -->
     <article>
       <img src="imagem.jpg" alt="Imagem da publicação 2">
+      
       <div class="conteudo">
-        <h2>Segunda Postagem</h2>
-        <p>O cartão escala em 1.02 e intensifica a cor da sombra conforme solicitado no desafio.</p>
+        <h2>Creative With Purpose</h2>
+        <p>Explore como o uso do <code>align-self: flex-end</code> permite posicionar o botão exatamente no canto inferior.</p>
+        
+        <div class="texto-extra">
+          A animação de escala no <code>:hover</code> eleva o cartão suavemente enquanto intensifica a sombra ao redor.
+        </div>
       </div>
-      <button>Ler mais</button>
+
+      <button onclick="alternarTexto(this)">Ver Projeto ➔</button>
     </article>
 
   </main>
+
+  <script>
+    function alternarTexto(botao) {
+      const card = botao.closest('article');
+      const textoExtra = card.querySelector('.texto-extra');
+
+      if (textoExtra.style.display === 'block') {
+        textoExtra.style.display = 'none';
+        botao.innerText = 'Ver Projeto ➔';
+      } else {
+        textoExtra.style.display = 'block';
+        botao.innerText = 'Recolher ✖';
+      }
+    }
+  </script>
 
 </body>
 </html>
