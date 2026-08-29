@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Postagens Interativa</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <title>Lista de Postagens</title>
 
   <style>
-    /* Reset e Fundo Estilo Frutiger Aero */
+    /* Estilos Globais */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -18,56 +14,67 @@
     }
 
     body {
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 50%, #d4fc79 100%);
-      background-attachment: fixed;
-      color: #2c3e50;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #333333;
       padding: 40px 20px;
-      transition: background 0.3s ease;
     }
 
     .container {
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 20px;
       max-width: 900px;
       margin: 0 auto;
     }
 
-    /* Regras do Card (Article em linha e 100% de largura) */
+    /* Regra Base dos Cards (Article) */
     article {
       display: flex;
       flex-direction: row;
       flex: 1 1 100%;
       width: 100%;
-
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
+      background-color: #ffffff;
+      border-radius: 12px;
       padding: 20px;
       gap: 20px;
       align-items: center;
-      
-      /* Transição suave para o efeito :hover */
+
+      /* Sombra inicial e transição para o efeito de hover */
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* DESAFIO ALURA: Regra com o seletor :hover no article */
+    /* REQUISITO: Seletor :hover aumentando o tamanho e intensificando a sombra */
     article:hover {
       transform: scale(1.02);
-      box-shadow: 0 12px 24px rgba(31, 38, 135, 0.25);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
     }
 
-    /* Imagem da Postagem */
+    /* REQUISITO: Ajustes do :hover no Modo Escuro */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0f172a;
+        color: #f8fafc;
+      }
+
+      article {
+        background-color: #1e293b;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Sombra azul brilhante no hover para telas escuras */
+      article:hover {
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+      }
+    }
+
+    /* Imagem e Conteúdo */
     article img {
       width: 180px;
       height: 120px;
       object-fit: cover;
-      border-radius: 14px;
-      border: 2px solid #ffffff;
+      border-radius: 8px;
       flex-shrink: 0;
     }
 
@@ -76,95 +83,25 @@
     }
 
     .conteudo h2 {
-      font-family: 'Chakra Petch', sans-serif;
-      color: #1e5799;
-      font-size: 1.3rem;
-      margin-bottom: 6px;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
     }
 
     .conteudo p {
-      color: #4a6572;
       font-size: 0.95rem;
       line-height: 1.4;
     }
 
-    .texto-extra {
-      display: none;
-      margin-top: 12px;
-      color: #2b4a6f;
-      font-size: 0.9rem;
-      border-top: 2px dotted #a1c4fd;
-      padding-top: 10px;
-    }
-
-    /* Botão alinhado no canto inferior com align-self */
+    /* Botão posicionado no canto inferior com align-self */
     article button {
       align-self: flex-end;
-      background: linear-gradient(180deg, #87e0fd 0%, #53cbf1 40%, #05abe0 100%);
+      background-color: #2563eb;
       color: #ffffff;
-      border: 1px solid #ffffff;
-      padding: 10px 22px;
-      border-radius: 50px;
-      font-family: 'Chakra Petch', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: bold;
       cursor: pointer;
-      white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(5, 171, 224, 0.4);
-      transition: all 0.2s ease;
-    }
-
-    article button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(5, 171, 224, 0.6);
-    }
-
-    /* DESAFIO ALURA: Ajuste no :hover para o Modo Escuro */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        color: #f8fafc;
-      }
-
-      article {
-        background: rgba(30, 41, 59, 0.7);
-        border-color: rgba(255, 255, 255, 0.1);
-      }
-
-      .conteudo h2 {
-        color: #38bdf8;
-      }
-
-      .conteudo p {
-        color: #cbd5e1;
-      }
-
-      .texto-extra {
-        color: #94a3b8;
-        border-top-color: #38bdf8;
-      }
-
-      /* Sombra azul brilhante no hover para fundos escuros */
-      article:hover {
-        box-shadow: 0 0 24px rgba(56, 189, 248, 0.4);
-      }
-    }
-
-    @media (max-width: 640px) {
-      article {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      article img {
-        width: 100%;
-        height: 160px;
-      }
-
-      article button {
-        align-self: stretch;
-        text-align: center;
-      }
     }
   </style>
 </head>
@@ -174,50 +111,23 @@
 
     <article>
       <img src="imagem.jpg" alt="Imagem da publicação 1">
-      
       <div class="conteudo">
-        <h2>★ Primeira Postagem ★</h2>
-        <p>Este é o texto da primeira postagem. Repare que a imagem, o texto e o botão estão alinhados lado a lado.</p>
-        
-        <div class="texto-extra">
-          Mais detalhes da publicação: o layout responsivo se adapta automaticamente ao tamanho da tela.
-        </div>
+        <h2>Primeira Postagem</h2>
+        <p>Passe o mouse sobre este cartão para visualizar o efeito de expansão com sombra.</p>
       </div>
-
-      <button onclick="alternarTexto(this)">Ler mais ✦</button>
+      <button>Ler mais</button>
     </article>
 
     <article>
       <img src="imagem.jpg" alt="Imagem da publicação 2">
-      
       <div class="conteudo">
-        <h2>★ Segunda Postagem ★</h2>
-        <p>Cada card ocupa 100% da largura total do contêiner, formando uma lista horizontal empilhada.</p>
-        
-        <div class="texto-extra">
-          O botão utiliza <code>align-self: flex-end</code> para quebrar o alinhamento central padrão dos elementos.
-        </div>
+        <h2>Segunda Postagem</h2>
+        <p>O cartão escala em 1.02 e intensifica a cor da sombra conforme solicitado no desafio.</p>
       </div>
-
-      <button onclick="alternarTexto(this)">Ler mais ✦</button>
+      <button>Ler mais</button>
     </article>
 
   </main>
-
-  <script>
-    function alternarTexto(botao) {
-      const card = botao.closest('article');
-      const textoExtra = card.querySelector('.texto-extra');
-
-      if (textoExtra.style.display === 'block') {
-        textoExtra.style.display = 'none';
-        botao.innerText = 'Ler mais ✦';
-      } else {
-        textoExtra.style.display = 'block';
-        botao.innerText = 'Recolher ✖';
-      }
-    }
-  </script>
 
 </body>
 </html>
