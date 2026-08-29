@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solar Pop Studio - Postagens</title>
+  <title>Solar Pop Studio - Portfólio & Postagens</title>
 
-  <!-- Fontes com estética marcante e moderna -->
+  <!-- Fontes Google estilo Pop e Moderno -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset e Fundo Quente (Solar Pop Style) */
+    /* Reset Básico e Cores Estilo Solar Pop */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,20 +20,122 @@
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #fff8f0; /* Tom creme/areia suave */
+      background-color: #fff8f0;
       color: #2b1b17;
-      padding: 40px 20px;
+      padding: 20px;
     }
 
     .container {
+      max-width: 950px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      max-width: 900px;
+      gap: 30px;
+    }
+
+    /* Cabeçalho Interativo */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #ff4800;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #645550;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #ff4800;
+    }
+
+    .btn-contato {
+      background-color: #ff4800;
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn-contato:hover {
+      transform: scale(1.05);
+    }
+
+    /* Banner Principal */
+    .hero {
+      background-color: #ffe8d6;
+      border-radius: 24px;
+      padding: 35px 25px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      color: #ff4800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #645550;
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    /* Regra do Card de Postagem (Article em linha e 100% de largura) */
+    /* Interação 1: Botões de Filtro */
+    .filtros {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-filtro {
+      background-color: #ffffff;
+      border: 2px solid #ffe8d6;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-weight: 700;
+      color: #ff4800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-filtro.ativo, .btn-filtro:hover {
+      background-color: #ff4800;
+      color: #ffffff;
+      border-color: #ff4800;
+    }
+
+    /* Seção dos Cards (Article em Linha) */
+    .lista-postagens {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
     article {
       display: flex;
       flex-direction: row;
@@ -44,24 +146,22 @@
       border: 2px solid #ffe8d6;
       border-radius: 24px;
       padding: 24px;
-      gap: 24px;
+      gap: 20px;
       align-items: center;
 
-      /* Sombra e transição para o efeito :hover */
       box-shadow: 0 8px 20px rgba(255, 107, 53, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* REQUISITO: Seletor :hover aumentando o tamanho e intensificando a sombra */
+    /* DESAFIO ALURA: Seletor :hover para expandir e intensificar sombra */
     article:hover {
       transform: scale(1.02);
       box-shadow: 0 16px 32px rgba(255, 107, 53, 0.2);
     }
 
-    /* Imagem da Postagem com estilo pop */
     article img {
-      width: 200px;
-      height: 130px;
+      width: 180px;
+      height: 120px;
       object-fit: cover;
       border-radius: 16px;
       flex-shrink: 0;
@@ -71,77 +171,143 @@
       flex: 1;
     }
 
+    .tag-categoria {
+      display: inline-block;
+      background-color: #ffe8d6;
+      color: #ff4800;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
     .conteudo h2 {
       font-family: 'Syne', sans-serif;
-      color: #ff4800; /* Laranja vibrante */
-      font-size: 1.4rem;
+      color: #ff4800;
+      font-size: 1.25rem;
       font-weight: 800;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: -0.5px;
+      margin-bottom: 6px;
     }
 
     .conteudo p {
       color: #645550;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .texto-extra {
-      display: none;
-      margin-top: 12px;
-      color: #2b1b17;
       font-size: 0.9rem;
-      border-top: 2px dashed #ffb09c;
-      padding-top: 10px;
+      line-height: 1.4;
     }
 
-    /* Botão posicionado no canto inferior com align-self */
-    article button {
-      align-self: flex-end;
+    /* Interação 2: Detalhes Expansíveis */
+    .detalhes-extras {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 2px dashed #ffe8d6;
+      font-size: 0.85rem;
+      color: #2b1b17;
+    }
+
+    /* Área de Ações do Card */
+    .acoes-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-self: flex-end; /* Botão no canto inferior */
+    }
+
+    /* Interação 3: Botão de Curtir */
+    .btn-curtir {
+      background: none;
+      border: 1px solid #ffb09c;
+      color: #ff4800;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-curtir.curtido {
+      background-color: #ffb09c;
+      color: #ffffff;
+    }
+
+    /* Botão Principal */
+    .btn-expandir {
       background-color: #ff4800;
       color: #ffffff;
       border: none;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border-radius: 50px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       cursor: pointer;
       white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(255, 72, 0, 0.3);
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      transition: background-color 0.2s;
     }
 
-    article button:hover {
+    .btn-expandir:hover {
       background-color: #ff6b35;
-      transform: translateY(-2px);
     }
 
-    /* REQUISITO: Ajustes do :hover para o Modo Escuro */
+    /* Interação 4: Cards de Estatísticas */
+    .estatisticas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .card-num {
+      background-color: #ffffff;
+      border: 2px solid #ffe8d6;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .card-num:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-num h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      color: #ff4800;
+    }
+
+    .card-num p {
+      font-size: 0.85rem;
+      color: #645550;
+      font-weight: 700;
+    }
+
+    /* DESAFIO ALURA: Ajustes do :hover no Modo Escuro */
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #1a0f0d;
         color: #fff8f0;
       }
 
+      .hero, .card-num, .btn-filtro {
+        background-color: #2b1b17;
+        border-color: #3d2823;
+        color: #fff8f0;
+      }
+
       article {
         background-color: #2b1b17;
         border-color: #3d2823;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       }
 
-      .conteudo h2 {
+      .conteudo h2, .tag-categoria, .card-num h3 {
         color: #ff6b35;
       }
 
-      .conteudo p {
+      .conteudo p, .hero p, nav a {
         color: #d1c2bd;
-      }
-
-      .texto-extra {
-        color: #fff8f0;
-        border-top-color: #ff6b35;
       }
 
       /* Sombra coral/brilhante no hover para telas escuras */
@@ -159,66 +325,151 @@
 
       article img {
         width: 100%;
-        height: 180px;
+        height: 160px;
       }
 
-      article button {
+      .acoes-card {
         align-self: stretch;
-        text-align: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <main class="container">
+  <div class="container">
 
-    <!-- Card 1 -->
-    <article>
-      <img src="imagem.jpg" alt="Imagem da publicação 1">
-      
-      <div class="conteudo">
-        <h2>Brand Design That Shines</h2>
-        <p>Aprenda a criar identidades visuais marcantes utilizando cores vibrantes e layouts altamente dinâmicos.</p>
+    <!-- Navegação -->
+    <header>
+      <div class="logo">Solar Pop</div>
+      <nav>
+        <a href="#projetos">Projetos</a>
+        <a href="#metricas">Métricas</a>
+        <button class="btn-contato">Contato</button>
+      </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="hero">
+      <h1>Design & Identidade Visual</h1>
+      <p>Explore nossas postagens sobre criação de marcas, interfaces modernas e desenvolvimento web de alto impacto.</p>
+    </section>
+
+    <!-- Filtros de Categorias -->
+    <div class="filtros">
+      <button class="btn-filtro ativo" onclick="filtrarCategoria('todos', this)">Todos</button>
+      <button class="btn-filtro" onclick="filtrarCategoria('design', this)">Design</button>
+      <button class="btn-filtro" onclick="filtrarCategoria('web', this)">Desenvolvimento</button>
+    </div>
+
+    <!-- Lista de Postagens -->
+    <main id="projetos" class="lista-postagens">
+
+      <!-- Card 1 -->
+      <article data-categoria="design">
+        <img src="imagem.jpg" alt="Imagem da publicação 1">
         
-        <div class="texto-extra">
-          Utilizando <code>flex-direction: row</code> e um visual pop moderno, seus cartões capturam a atenção de forma elegante.
+        <div class="conteudo">
+          <span class="tag-categoria">Design</span>
+          <h2>Identidade Visual Marcante</h2>
+          <p>Como aplicar combinações de cores vibrantes e tipografias exclusivas para fazer uma marca se destacar.</p>
+          
+          <div class="detalhes-extras">
+            <strong>Informações Relevantes:</strong> O processo inclui pesquisa de público-alvo, criação de moodboards e desenvolvimento do guia de estilo completo.
+          </div>
         </div>
-      </div>
 
-      <button onclick="alternarTexto(this)">Ver Projeto ➔</button>
-    </article>
+        <div class="acoes-card">
+          <button class="btn-curtir" onclick="curtirPostagem(this)">♥ <span class="num-curtidas">12</span></button>
+          <button class="btn-expandir" onclick="alternarDetalhes(this)">Ver detalhes ➔</button>
+        </div>
+      </article>
 
-    <!-- Card 2 -->
-    <article>
-      <img src="imagem.jpg" alt="Imagem da publicação 2">
-      
-      <div class="conteudo">
-        <h2>Creative With Purpose</h2>
-        <p>Explore como o uso do <code>align-self: flex-end</code> permite posicionar o botão exatamente no canto inferior.</p>
+      <!-- Card 2 -->
+      <article data-categoria="web">
+        <img src="imagem.jpg" alt="Imagem da publicação 2">
         
-        <div class="texto-extra">
-          A animação de escala no <code>:hover</code> eleva o cartão suavemente enquanto intensifica a sombra ao redor.
+        <div class="conteudo">
+          <span class="tag-categoria">Desenvolvimento</span>
+          <h2>Layouts Flexíveis com Flexbox</h2>
+          <p>Aprenda a organizar componentes dinâmicos em linha utilizando 100% da largura do contêiner.</p>
+          
+          <div class="detalhes-extras">
+            <strong>Informações Relevantes:</strong> Utilizando a propriedade <code>align-self: flex-end</code>, alinhamos os botões no canto inferior do cartão perfeitamente.
+          </div>
         </div>
+
+        <div class="acoes-card">
+          <button class="btn-curtir" onclick="curtirPostagem(this)">♥ <span class="num-curtidas">25</span></button>
+          <button class="btn-expandir" onclick="alternarDetalhes(this)">Ver detalhes ➔</button>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- Métrica e Experiência -->
+    <section id="metricas" class="estatisticas">
+      <div class="card-num">
+        <h3>5+</h3>
+        <p>Anos de Experiência</p>
       </div>
+      <div class="card-num">
+        <h3>120+</h3>
+        <p>Projetos Entregues</p>
+      </div>
+      <div class="card-num">
+        <h3>100%</h3>
+        <p>Satisfação dos Clientes</p>
+      </div>
+    </section>
 
-      <button onclick="alternarTexto(this)">Ver Projeto ➔</button>
-    </article>
+  </div>
 
-  </main>
-
+  <!-- Scripts das Interações -->
   <script>
-    function alternarTexto(botao) {
+    // Interação 1: Expandir/Recolher Detalhes
+    function alternarDetalhes(botao) {
       const card = botao.closest('article');
-      const textoExtra = card.querySelector('.texto-extra');
+      const detalhes = card.querySelector('.detalhes-extras');
 
-      if (textoExtra.style.display === 'block') {
-        textoExtra.style.display = 'none';
-        botao.innerText = 'Ver Projeto ➔';
+      if (detalhes.style.display === 'block') {
+        detalhes.style.display = 'none';
+        botao.innerText = 'Ver detalhes ➔';
       } else {
-        textoExtra.style.display = 'block';
+        detalhes.style.display = 'block';
         botao.innerText = 'Recolher ✖';
       }
+    }
+
+    // Interação 2: Contador de Curtidas
+    function curtirPostagem(botao) {
+      const contador = botao.querySelector('.num-curtidas');
+      let valorAtual = parseInt(contador.innerText);
+
+      if (botao.classList.contains('curtido')) {
+        botao.classList.remove('curtido');
+        contador.innerText = valorAtual - 1;
+      } else {
+        botao.classList.add('curtido');
+        contador.innerText = valorAtual + 1;
+      }
+    }
+
+    // Interação 3: Filtro por Categoria
+    function filtrarCategoria(categoria, botaoClicado) {
+      const botoes = document.querySelectorAll('.btn-filtro');
+      const cards = document.querySelectorAll('article');
+
+      botoes.forEach(b => b.classList.remove('ativo'));
+      botaoClicado.classList.add('ativo');
+
+      cards.forEach(card => {
+        const catCard = card.getAttribute('data-categoria');
+        if (categoria === 'todos' || catCard === categoria) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
   </script>
 
